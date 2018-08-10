@@ -65,15 +65,6 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
-     * @return mixed
-     */
-    public function usersProjects($id)
-    {
-        return $this->get('users/'.$this->encodePath($id).'/projects');
-    }
-
-    /**
      * @return mixed
      */
     public function user()
@@ -265,18 +256,11 @@ class Users extends AbstractApi
 
     /**
      * @param int $user_id
-     * @param array $params
      * @return mixed
      */
-    public function userImpersonationTokens($user_id, array $params = [])
+    public function userImpersonationTokens($user_id)
     {
-        $resolver = $this->createOptionsResolver();
-
-        $resolver->setDefined('state')
-            ->setAllowedValues('state', ['all', 'active', 'inactive'])
-        ;
-
-        return $this->get('users/'.$this->encodePath($user_id).'/impersonation_tokens', $resolver->resolve($params));
+        return $this->get('users/'.$this->encodePath($user_id).'/impersonation_tokens');
     }
 
     /**

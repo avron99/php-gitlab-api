@@ -26,16 +26,14 @@ class Snippets extends AbstractApi
      * @param string $title
      * @param string $filename
      * @param string $code
-     * @param string $visibility
      * @return mixed
      */
-    public function create($project_id, $title, $filename, $code, $visibility)
+    public function create($project_id, $title, $filename, $code)
     {
         return $this->post($this->getProjectPath($project_id, 'snippets'), array(
-            'title'      => $title,
-            'file_name'  => $filename,
-            'code'       => $code,
-            'visibility' => $visibility
+            'title' => $title,
+            'file_name' => $filename,
+            'code' => $code
         ));
     }
 

@@ -158,18 +158,6 @@ class MergeRequests extends AbstractApi
     }
 
     /**
-     * @param int $projectId
-     * @param int $mrId
-     * @param int $noteId
-     *
-     * @return mixed
-     */
-    public function removeNote($projectId, $mrId, $noteId)
-    {
-        return $this->delete($this->getProjectPath($projectId, 'merge_requests/'.$this->encodePath($mrId).'/notes/'.$this->encodePath($noteId)));
-    }
-
-    /**
      * @param int $project_id
      * @param int $mr_id
      * @return mixed
